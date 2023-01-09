@@ -62,7 +62,7 @@
         </div>
 
         <div class="mb-3 text-end">
-        <a href="./edit.html" class="btn btn-secondary">수정</a>
+          <a href="/form/edit" class="btn btn-secondary">수정</a>
           <button class="btn btn-secondary">뒤로가기</button>
         </div>
       </form>
