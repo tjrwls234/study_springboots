@@ -1,9 +1,15 @@
 package com.study.study_springboots.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.study.study_springboots.beans.BoardBean;
+import com.study.study_springboots.service.DataInfors;
 
 import ch.qos.logback.core.model.Model;
 
@@ -28,12 +34,19 @@ public class BoardOurController {
     public ModelAndView list() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("firstString", "firstValue");
+        DataInfors dataInfors = new DataInfors();
+        ArrayList<BoardBean> boardList = dataInfors.getDataListWithMemberBean();
+        modelAndView.addObject("boardList", boardList);
         modelAndView.setViewName("/board_our/list");
         return modelAndView; // --> Dispatcher Servlet
     }
 
     @RequestMapping(value = "/view", method = RequestMethod.GET) // "board_our/view"
-    public ModelAndView view(ModelAndView modelAndView) {
+    public ModelAndView view(@RequestParam String uid, ModelAndView modelAndView) {
+        System.out.println("uid : " + uid);
+        DataInfors dataInfors = new DataInfors();
+        BoardBean boardBean = dataInfors.getDataWithMemberBean();
+        modelAndView.addObject("boardBean", boardBean);
         modelAndView.setViewName("/board_our/view");
         return modelAndView;
     }
