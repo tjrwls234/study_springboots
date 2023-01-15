@@ -11,8 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.study.study_springboots.beans.BoardBean;
 import com.study.study_springboots.service.DataInfors;
 
-import ch.qos.logback.core.model.Model;
-
 // Cast
 // user BootStrap
 // 항목 : title, content, userName, data

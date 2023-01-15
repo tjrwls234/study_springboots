@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import com.study.study_springboots.beans.BoardBean;
 import com.study.study_springboots.service.DataInfors;
 
@@ -24,6 +23,7 @@ public class BoardController {
         return modelAndView;
     }
 
+    // list.jsp에서 가져온 title과 Arraylist의 title을 비교하여 view.jsp에서 출력
     @RequestMapping(value = "/view", method = RequestMethod.GET)
     public ModelAndView view(@RequestParam String title, ModelAndView modelAndView) {
         DataInfors dataInfors = new DataInfors();
