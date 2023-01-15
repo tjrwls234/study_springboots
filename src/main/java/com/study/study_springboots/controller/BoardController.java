@@ -1,35 +1,53 @@
 package com.study.study_springboots.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
-// @Controller
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
+import com.study.study_springboots.beans.BoardBean;
+import com.study.study_springboots.service.DataInfors;
+
+@Controller
+@RequestMapping(value = "/board")
 public class BoardController {
-    // @RequestMapping(value = { "/board", "/board/list" }, method =
-    // RequestMethod.GET)
-    public String list() {
-        return "/WEB-INF/views/board/list.jsp";
+    @RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
+    public ModelAndView list(ModelAndView modelAndView) {
+        DataInfors dataInfors = new DataInfors();
+        ArrayList<BoardBean> BoardsList = dataInfors.getDataListWithBoardBean();
+        modelAndView.addObject("BoardsList", BoardsList);
+        modelAndView.setViewName("/board/list");
+        return modelAndView;
     }
 
-    // @RequestMapping(value = "/board/view", method = RequestMethod.GET)
-    public String view() {
-        return "/WEB-INF/views/board/view.jsp";
+    @RequestMapping(value = "/view", method = RequestMethod.GET)
+    public ModelAndView view(@RequestParam String title, ModelAndView modelAndView) {
+        DataInfors dataInfors = new DataInfors();
+        ArrayList<BoardBean> BoardsList = dataInfors.getDataListWithBoardBean();
+        modelAndView.addObject("title", title);
+        modelAndView.addObject("BoardsList", BoardsList);
+        modelAndView.setViewName("/board/view");
+        return modelAndView;
     }
 
-    // @RequestMapping(value = "/board/edit", method = RequestMethod.GET)
-    public String edit() {
-        return "/WEB-INF/views/board/edit.jsp";
+    @RequestMapping(value = "/edit", method = RequestMethod.GET)
+    public ModelAndView edit(ModelAndView modelAndView) {
+        modelAndView.setViewName("/board/edit");
+        return modelAndView;
     }
 
-    // @RequestMapping(value = "/board/form", method = RequestMethod.GET)
+    @RequestMapping(value = "/form", method = RequestMethod.GET)
     public String form() {
-        return "/WEB-INF/views/board/form.jsp";
+        return "/board/form";
     }
 
-    // @RequestMapping(value = "/board/form", method = RequestMethod.POST)
+    @RequestMapping(value = "/form", method = RequestMethod.POST)
     public String formPost() {
         // insert biz
-        return "/WEB-INF/views/board/list.jsp";
+        return "/board/list";
     }
 }

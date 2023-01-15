@@ -1,4 +1,6 @@
-<%@ page contentType ="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,35 +18,17 @@
   <body>
     <div class="container border" style="height: 40rem">
       <div class="border mb-2 p-1 fs-4 mt-2">운동 일지</div>
-      <div
-        class="border mb-2 p-1 d-flex justify-content-between align-items-center"
-      >
-        <a href="/board/view">1. 금요일 운동</a>
+      <%-- 반복될 구문 --%>
+      <%-- 제목(title) 파라미터로 넘김 --%>
+      <c:forEach items="${BoardsList}" var="board" varStatus="status">
+        <div
+          class="border mb-2 p-1 d-flex justify-content-between align-items-center"
+        >
+          <a href="/board/view?title=${board.title}">${status.count}. ${board.title}</a>
       </div>
-      <div
-        class="border mb-2 p-1 d-flex justify-content-between align-items-center"
-      >
-        <a href="/board/view">2. 토요일 운동</a>
+      </c:forEach>
+      <%-- 여기까지 구문 --%>
 
-      </div>
-      <div
-        class="border mb-2 p-1 d-flex justify-content-between align-items-center"
-      >
-        <a href="/board/view">3. 일요일 운동</a>
-
-      </div>
-      <div
-        class="border mb-2 p-1 d-flex justify-content-between align-items-center"
-      >
-        <a href="/board/view">4. 월요일 운동</a>
-
-      </div>
-      <div
-        class="border mb-2 p-1 d-flex justify-content-between align-items-center"
-      >
-        <a href="/board/view">5. 화요일 운동</a>
-
-      </div>
       <div class="d-flex">
         <div>
           <a href="/board/form" class="btn btn-secondary">작성</a>

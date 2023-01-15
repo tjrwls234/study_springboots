@@ -1,4 +1,6 @@
-<%@ page contentType ="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,6 +18,8 @@
   <body>
     <div class="container border p-4">
       <div class="border text-center fs-5 mb-3">View</div>
+      <c:forEach items="${BoardsList}" var="board" varStatus="status">
+      <c:if test="${board.title eq title}">
       <form action="/board/list">
         <div class="d-flex">
           <div class="mb-3 w-50 me-3">
@@ -24,7 +28,7 @@
               type="text"
               name="userName"
               class="form-control"
-              value="김석진"
+              value="${board.userName}"
             />
           </div>
           <div class="mb-3 w-50">
@@ -33,7 +37,7 @@
               type="date"
               name="date"
               class="form-control"
-              value="2023-01-06"
+              value="${board.date}"
             />
           </div>
         </div>
@@ -43,26 +47,23 @@
             type="text"
             name="title"
             class="form-control"
-            value="금요일 운동"
+            value="${board.title}"
           />
         </div>
         <div class="mb-3">
           <label for="content">내용</label>
           <textarea name="content" class="form-control" style="height: 10rem">
-가슴운동
-1. 플랫 벤치프레스
-2. 덤벨 벤치프레스
-2. 인클라인 벤치프레스
-3. 플라이
-4. 딥스
+${board.content}
 
 
         </textarea
           >
         </div>
+        </c:if>
+      </c:forEach>
 
         <div class="mb-3 text-end">
-          <a href="/form/edit" class="btn btn-secondary">수정</a>
+          <a href="/board/edit" class="btn btn-secondary">수정</a>
           <button class="btn btn-secondary">뒤로가기</button>
         </div>
       </form>

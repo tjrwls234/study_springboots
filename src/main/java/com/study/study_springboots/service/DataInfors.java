@@ -67,4 +67,38 @@ public class DataInfors {
         memebersList.add(boardBean03);
         return memebersList;
     }
+
+    // boardController 용
+    public ArrayList<BoardBean> getDataListWithBoardBean() {
+        ArrayList<BoardBean> boardsList = new ArrayList<>();
+        BoardBean boardBean1 = new BoardBean();
+        boardBean1.setTitle("가슴운동 루틴");
+        boardBean1.setContent("가슴운동 1. 플랫 벤치프레스 2. 덤벨 벤치프레스 3. 인클라인 벤치프레스 4. 플라이 5. 딥스");
+        boardBean1.setUserName("Mark");
+        boardBean1.setDate("2023-01-06");
+        boardsList.add(boardBean1);
+
+        BoardBean boardBean2 = new BoardBean();
+        boardBean2.setTitle("등운동 루틴");
+        boardBean2.setContent("등운동 1. 턱걸이 2. 렛풀다운 3. 시티드 로우 4. 바벨로우 5. 케이풀 풀다운");
+        boardBean2.setUserName("Jacob");
+        boardBean2.setDate("2023-01-08");
+        boardsList.add(boardBean2);
+
+        BoardBean boardBean3 = new BoardBean();
+        boardBean3.setTitle("어깨운동 루틴");
+        boardBean3.setContent("어깨운동 1. 머신 숄더프레스 2. 덤벨 숄더프레스 3. 사이드 레터럴 레이즈 4. 페이스 풀 5. 리버스 펙 덱 플라이");
+        boardBean3.setUserName("Bird");
+        boardBean3.setDate("2023-01-09");
+        boardsList.add(boardBean3);
+
+        BoardBean boardBean4 = new BoardBean();
+        boardBean4.setTitle("하체운동 루틴");
+        boardBean4.setContent("하체운동 1. 스쿼트 2. 파워프레스 3.레그 레이지  4. 레그 컬");
+        boardBean4.setUserName("seok");
+        boardBean4.setDate("2023-01-12");
+        boardsList.add(boardBean4);
+
+        return boardsList;
+    }
 }
