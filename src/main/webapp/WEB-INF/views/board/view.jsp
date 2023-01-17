@@ -18,9 +18,7 @@
   <body>
     <div class="container border p-4">
       <div class="border text-center fs-5 mb-3">View</div>
-      <c:forEach items="${BoardsList}" var="board" varStatus="status">
-      <c:if test="${board.title eq title}">
-      <form action="/board/list">
+      <form action="/notice/edit" method="POST">
         <div class="d-flex">
           <div class="mb-3 w-50 me-3">
             <label for="userName">작성자</label>
@@ -28,7 +26,7 @@
               type="text"
               name="userName"
               class="form-control"
-              value="${board.userName}"
+              value="${boardBean.userName}"
             />
           </div>
           <div class="mb-3 w-50">
@@ -37,7 +35,7 @@
               type="date"
               name="date"
               class="form-control"
-              value="${board.date}"
+              value="${boardBean.date}"
             />
           </div>
         </div>
@@ -47,24 +45,21 @@
             type="text"
             name="title"
             class="form-control"
-            value="${board.title}"
+            value="${boardBean.title}"
           />
         </div>
         <div class="mb-3">
           <label for="content">내용</label>
           <textarea name="content" class="form-control" style="height: 10rem">
-${board.content}
+${boardBean.content}
 
 
         </textarea
           >
         </div>
-        </c:if>
-      </c:forEach>
-
         <div class="mb-3 text-end">
-          <a href="/board/edit" class="btn btn-secondary">수정</a>
-          <button class="btn btn-secondary">뒤로가기</button>
+          <button class="btn btn-secondary">수정</button>
+          <a href="/notice/list" class="btn btn-secondary">뒤로가기</a>
         </div>
       </form>
     </div>

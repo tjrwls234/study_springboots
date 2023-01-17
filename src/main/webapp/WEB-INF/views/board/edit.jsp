@@ -16,7 +16,7 @@
   <body>
     <div class="container border p-4">
       <div class="border text-center fs-5 mb-3">Edit</div>
-      <form action="/board/form" method="post">
+      <form action="/notice/view" method="post">
         <div class="d-flex">
           <div class="mb-3 w-50 me-3">
             <label for="userName">작성자</label>
@@ -24,7 +24,7 @@
               type="text"
               name="userName"
               class="form-control"
-              value="김석진"
+              value="${boardBean.userName}"
             />
           </div>
           <div class="mb-3 w-50">
@@ -33,7 +33,7 @@
               type="date"
               name="date"
               class="form-control"
-              value="2023-01-06"
+              value="${boardBean.date}"
             />
           </div>
         </div>
@@ -43,20 +43,13 @@
             type="text"
             name="title"
             class="form-control"
-            value="금요일 운동"
+            value="${boardBean.title}"
           />
         </div>
         <div class="mb-3">
           <label for="content">내용</label>
           <textarea name="content" class="form-control" style="height: 10rem">
-가슴운동
-1. 플랫 벤치프레스
-2. 덤벨 벤치프레스
-2. 인클라인 벤치프레스
-3. 플라이
-4. 딥스
-
-
+${boardBean.content}
         </textarea
           >
         </div>

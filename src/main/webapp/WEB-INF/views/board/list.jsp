@@ -24,7 +24,7 @@
         <div
           class="border mb-2 p-1 d-flex justify-content-between align-items-center"
         >
-          <a href="/board/view?title=${board.title}">${status.count}. ${board.title}</a>
+          <a href="/notice/view/${board.uid}">${status.count}. ${board.title}</a>
       </div>
       </c:forEach>
       <%-- 여기까지 구문 --%>

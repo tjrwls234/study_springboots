@@ -29,4 +29,11 @@ public class HomeController {
 
         return "home.html";
     }
+
+    @RequestMapping(value = "/jstlformats")
+    public String jstlformats() {
+        int i = 0;
+
+        return "jstl_formats";
+    }
 }

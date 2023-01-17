@@ -5,6 +5,15 @@ public class BoardBean { // vo, dao, dto
     private String content;
     private String userName;
     private String date;
+    private String uid;
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
 
     public String getTitle() {
         return title;
